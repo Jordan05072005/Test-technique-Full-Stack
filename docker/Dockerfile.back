@@ -1,0 +1,16 @@
+FROM node:20-bullseye
+
+WORKDIR /usr/src/app
+
+RUN apt-get update && apt-get install -y --no-install-recommends bash \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY back/package*.json ./
+RUN npm ci
+
+COPY back/ ./
+
+# si ton package.json a un script "start:dev" (ex: nest start --watch)
+EXPOSE 3000
+
+CMD ["npm", "run", "start:dev"]

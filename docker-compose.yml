@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  front:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.front
+    container_name: front-dev
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./front:/usr/src/app:delegated
+      - front_node_modules:/usr/src/app/node_modules
+    stdin_open: true
+    tty: true
+  back:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.back
+    container_name: back-dev
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      MONGO_USER: admin
+      MONGO_PASS: secret
+      MONGO_DB: mydb
+    volumes:
+      - ./back:/usr/src/app:delegated
+      - back_node_modules:/usr/src/app/node_modules
+    stdin_open: true
+    tty: true
+  mongo:
+    image: mongo:6
+    container_name: monog-dev
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+      MONGO_INITDB_DATABASE: mydb
+    volumes:
+      - mongo_data:/data/db
+
+
+volumes:
+  front_node_modules:
+  back_node_modules:
+  mongo_data:
