@@ -26,9 +26,9 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
-      MONGO_USER: admin
-      MONGO_PASS: secret
-      MONGO_DB: mydb
+      MONGO_USER: ${MONGO_USER}
+      MONGO_PASS: ${MONGO_PASS}
+      MONGO_DB: ${MONGO_DB}
     volumes:
       - ./back:/usr/src/app:delegated
       - back_node_modules:/usr/src/app/node_modules
@@ -40,9 +40,9 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: secret
-      MONGO_INITDB_DATABASE: mydb
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+      MONGO_INITDB_DATABASE: ${MONGO_DB}
     volumes:
       - mongo_data:/data/db
 
