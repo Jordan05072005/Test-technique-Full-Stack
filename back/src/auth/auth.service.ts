@@ -5,7 +5,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { User } from "./auth.schema";
 import { Model } from "mongoose";
 import * as bcrypt from 'bcrypt';
-import { UserLoginDto } from "./dto/userlogin.dto";
+import { UserLoginDto } from "./dto/userLogin.dto";
 import { exec } from "child_process";
 
 
