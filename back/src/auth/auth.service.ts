@@ -1,11 +1,12 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
-import { UserDto } from "./Dto/user.Dto";
+import { UserDto } from "./dto/user.dto";
 import { JwtService } from "../jwt/jwt.service";
 import { InjectModel } from "@nestjs/mongoose";
 import { User } from "./auth.schema";
 import { Model } from "mongoose";
 import * as bcrypt from 'bcrypt';
-import { UserLoginDto } from "./Dto/UserLogin.Dto";
+import { UserLoginDto } from "./dto/userlogin.dto";
+import { exec } from "child_process";
 
 
 @Injectable()
@@ -16,19 +17,20 @@ export class AuthService {
 
 	async signup(user : UserDto){
 		const hashedPassword = await bcrypt.hash(user.password, 10);
-  	return this.userModel.create({
+  	await this.userModel.create({
     	name: user.name,
     	email: user.email,
     	password: hashedPassword,
   	});
 	}
+
 	async login(user : UserLoginDto){
 		const data = await this.userModel.findOne({
 			email: user.email,
-		})
-		if (!data || (await bcrypt.compare(user.password, data.password)))
+		}).exec();
+		if (!data || !(await bcrypt.compare(user.password, data.password)))
 				throw new UnauthorizedException('email ou mot de passe invalide');
-		const payload = {sub: data.name, email: user.email};
-		return (this.jwtService.createToken(payload));
+		const payload = {sub: data.id, email: user.email};
+		return ({jwttoken: this.jwtService.createToken(payload)});
 	}
 }

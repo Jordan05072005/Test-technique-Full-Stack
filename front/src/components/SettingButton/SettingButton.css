@@ -1,0 +1,21 @@
+/* Spécifique au second bouton (⚙) */
+.second-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.15s ease;
+  z-index: 20;
+}
+
+.second-button:hover {
+  background: #f0f0f0;
+  border-color: #888;
+}

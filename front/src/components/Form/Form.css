@@ -1,0 +1,94 @@
+.form-backdrop {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;     /* centre verticalement */
+  padding-top: 0;          /* annule le décalage vers le haut */
+  z-index: 2000;
+}
+
+/* Backdrop couvrant tout l'écran et assombrit le reste */
+.form-backdrop {
+  position: fixed;     /* couvrir la fenêtre entière */
+  inset: 0;            /* top:0 right:0 bottom:0 left:0 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45); /* couche sombre */
+  z-index: 9999;       /* très au dessus (ajuste si besoin) */
+  -webkit-tap-highlight-color: transparent;
+  transition: background 180ms ease;
+}
+
+/* boîte du formulaire au-dessus du backdrop */
+.form {
+  position: relative;
+  z-index: 10000;
+  background: white;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  box-sizing: border-box;
+  transform: translateY(0);
+  transition: transform 180ms ease, opacity 180ms ease;
+  opacity: 1;
+}
+
+.form-backdrop.show {
+  background: rgba(0,0,0,0.45);
+}
+.form-backdrop.hide {
+  background: rgba(0,0,0,0);
+}
+.form.hide {
+  transform: translateY(-6px);
+  opacity: 0;
+}
+
+.form .project-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-right: 2.5rem;
+}
+
+/* positionner la croix en absolute (en haut à droite de la modal) */
+.form .close-btn {
+  position: absolute;
+  top: 0.7rem;            /* ajuste verticalement pour aligner avec le titre */
+  right: 0.6rem;          /* distance depuis le bord droit */
+  padding: 0.25rem;
+  height: auto;
+  width: auto;
+}
+
+
+
+/* Force les inputs empilés et le bouton toujours en dessous */
+.form .header-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.6rem;
+  align-items: stretch;
+}
+
+.form .header-row input,
+.form .header-row > * {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* S'assure que le bouton est sur sa propre ligne, sous les inputs */
+.form .Validation {
+  display: block !important;
+  width: 100% !important;      /* retirer si tu veux bouton plus petit */
+  margin-top: 0.75rem !important;
+  box-sizing: border-box !important;
+}	
