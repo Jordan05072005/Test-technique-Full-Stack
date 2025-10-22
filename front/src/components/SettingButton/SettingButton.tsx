@@ -1,6 +1,6 @@
 import "./SettingButton.css"
 
-export default function SettingButton({onClick}: any){
+export default function SettingButton({onClick, className}: any){
 	return (
 		<button className="second-button"
 					onClick={(e) => {

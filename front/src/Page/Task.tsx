@@ -7,6 +7,9 @@ import { useTaskForm } from "@/hook/useTask";
 import { Form } from "@/components/Form/Form";
 import { DeleteButton } from "@/components/DeleteButton/DeleteButton";
 import SettingButton from "@/components/SettingButton/SettingButton";
+import { ReturnButton } from "@/components/ReturnButton/ReturnButton";
+import { randomColor } from "@/utils/color";
+import TaskCard from "@/components/task/TaskCard";
 
 
 
@@ -17,23 +20,7 @@ export function DisplayTask({tasks, funcUpdate, setFormTask, onDelete, onUpdate}
 	return (
 	<div className="project-list">
 		{tasks.map((task, index) => (
-        <label key={index} className="task-item" htmlFor={`task-${index}`}>
-				<div className="card-buttons">
-				<DeleteButton className="top-button" 
-					onClick={() => {onDelete(task._id)}}></DeleteButton>
-					<SettingButton 
-					onClick={() =>{setFormTask({_id: task._id, body: task.body, checked: task.checked});onUpdate(); }}></SettingButton>
-					</div>
-          <input
-            id={`task-${index}`}
-            type="checkbox"
-            checked={task.checked}
-            onChange={(e) => {
-							funcUpdate({_id: task._id, body: task.body, checked: e.target.checked});
-            }}
-          />
-          <span className="task-text">{task.body}</span>
-        </label>
+			<TaskCard task={task} funcUpdate={funcUpdate} setFormTask={setFormTask} onDelete={onDelete} onUpdate={onUpdate} index={index}></TaskCard>
 		))}
 	</div>)
 }
@@ -49,6 +36,8 @@ export default function TaskList(){
 				<DisplayTask tasks={dataTask} setFormTask={setFormTask}
 				onDelete={delTask} onUpdate={()=>{setStateUpdateFormTask(true)}} funcUpdate={updateTask} />
 			</div>
+			<ReturnButton className="return-button" 
+			path="/"></ReturnButton>
 		</div>
 		{(stateformTask || stateUpdateformTask)&& (
 			<Form

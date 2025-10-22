@@ -1,0 +1,119 @@
+.task-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #2a2a2a;
+	border: 1px solid #333333;
+	border-radius: 8px;
+	padding: 12px;
+	color: #d1d1d1;
+	gap: 10px;
+	position: relative;
+	transition: transform 0.12s ease, box-shadow 0.12s ease;
+	box-sizing: border-box;
+	max-width: 600px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.task-item:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.task-item input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	border: 2px solid #555;
+	border-radius: 4px;
+	appearance: none;
+	background-color: #2a2a2a;
+	cursor: pointer;
+	transition: all 0.12s ease;
+	flex-shrink: 0;
+}
+
+.task-item input[type="checkbox"]:checked {
+	background-color: #2563eb;
+	border-color: #2563eb;
+}
+
+.task-item input[type="checkbox"]:checked::after {
+	content: "✔";
+	color: white;
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+
+.task-text {
+	flex: 1;
+	word-break: break-word;
+	color: #f1f1f1;
+	margin-right: 12px;
+	padding-right: 80px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	min-width: 0;
+}
+
+.card-buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
+}
+
+.card-buttons .top-button,
+.card-buttons .seconde-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	padding: 6px;
+	cursor: pointer;
+	transition: transform 0.12s ease, filter 0.12s ease;
+	min-width: 32px;
+	min-height: 32px;
+}
+
+.card-buttons .top-button {
+	background-color: #60a5fa;
+	color: #04264a;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.card-buttons .seconde-button {
+	background-color: #ff0000;
+	color: white;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.card-buttons .top-button:hover,
+.card-buttons .seconde-button:hover {
+	transform: translateY(-1px);
+	filter: brightness(1.05);
+}
+
+.card-buttons svg {
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+@media (max-width: 520px) {
+	.task-item {
+		flex-direction: column;
+		align-items: stretch;
+		max-width: 100%;
+	}
+	.card-buttons {
+		justify-content: flex-end;
+		gap: 6px;
+	}
+	.task-text {
+		white-space: normal;
+	}
+}

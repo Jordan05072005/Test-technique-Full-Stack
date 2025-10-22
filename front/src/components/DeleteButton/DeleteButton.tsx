@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
+import "./DeleteButton.css"
 
 export function DeleteButton({ onClick, className}: { onClick: () => void, className: string}) {
   return (
     <Button
-			className={className}
+			className="delete-button"
       variant="destructive"
       size="icon"
       onClick={(e) => {

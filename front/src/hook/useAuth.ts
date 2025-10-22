@@ -10,7 +10,6 @@ export const useAuth = () => {
   }, []);
 
   const login  = async(funclogin: () => Promise<string | null | undefined>) => {
-		console.log("hello");
 		const jwt = await funclogin();
 		if (jwt){
     	localStorage.setItem(key, jwt);

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import ProjectList from './Page/Projects'
-import Task from "./Page/Task"
+import ProjectList from './page/Projects'
+import Task from "./page/Task"
 
 function App() {
   return (

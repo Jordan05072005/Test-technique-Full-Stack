@@ -9,3 +9,7 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+
+
+// const key = import.meta.env.VITE_JWT_KEY;
+// localStorage.removeItem(key)

@@ -1,9 +1,9 @@
-.second-button {
+.delete-button {
   width: 28px;
   height: 28px;
   border-radius: 6px;
   border: 1px solid #000000;
-  background: #fff;
+  background: #ff0000;
   color: #000;
   cursor: pointer;
   display: flex;
@@ -14,7 +14,7 @@
   z-index: 20;
 }
 
-.second-button:hover {
-  background: #f0f0f0;
+.delete-button:hover {
+  background: #ff0000;
   border-color: #000000;
 }

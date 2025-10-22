@@ -9,21 +9,18 @@
   padding: 0;
 }
 
-/* HEADER : titre centré + bouton login à droite */
-/* HEADER : titre centré + bouton login à droite */
 .header-row {
   position: relative;
-  height: 80px;                 /* augmente légèrement la hauteur si tu veux plus d'espace */
+  height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;      /* centre le titre horizontalement */
+  justify-content: center;
   padding: 0 1rem;
 }
 
-/* titre centré plus grand */
 .header-row .project-title {
   margin: 0;
-  font-size: 2rem;              /* plus grand : ajuste (ex: 1.75rem, 2.25rem) */
+  font-size: 2rem;
   text-decoration: underline;
   text-align: center;
   position: relative;
@@ -31,26 +28,24 @@
   letter-spacing: 0.5px;
 }
 
-/* wrapper pour le bouton login (positionné à droite, verticalement centré) */
-/* wrapper pour le bouton login (position à droite, vertical centré) */
 .header-row .login-btn {
   position: absolute;
-  right: 1rem;                  /* espace depuis le bord droit */
+  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
   z-index: 50;
   display: inline-flex;
   align-items: center;
-	outline: 2px solid grey;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* agrandir le bouton contenu dans .login-btn */
 .header-row .login-btn > * {
   margin: 0;
-  padding: 10px 16px;        /* plus d'espace intérieur */
-  font-size: 1rem;          /* texte plus gros */
-  height: 48px;             /* hauteur fixe propre */
-  min-width: 48px;          /* carré si icône seule */
+  padding: 10px 16px;
+  font-size: 1rem;
+  height: 48px;
+  min-width: 48px;
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
@@ -60,20 +55,12 @@
   border: none;
 }
 
-/* icône SVG à l'intérieur du bouton */
 .header-row .login-btn svg {
   width: 20px;
   height: 20px;
   display: block;
 }
 
-/* hover */
-/* .header-row .login-btn > *:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-} */
-
-/* sécurité : si LogBouton est un lien ou bouton natif, enlever ses marges par défaut */
 .header-row .login-btn button,
 .header-row .login-btn a {
   margin: 0;
@@ -85,30 +72,28 @@
   justify-content: center;
 }
 
-
 .project-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
-    padding: 12px; /* padding interne pour les cartes */
+    padding: 12px;
 }
 
 
 .error-text {
-  display: block;            /* s'assure qu'il prend toute la ligne */
+  display: block;
   width: 100%;
-  margin: 0.5rem 0 0;        /* petit espace au-dessus */
-  padding: 0;                /* pas de fond par défaut */
-  color: #b91c1c;            /* rouge profond (non fluo) */
-  font-weight: 600;          /* légèrement accentué */
-  font-size: 0.95rem;        /* taille lisible, modifiable */
+  margin: 0.5rem 0 0;
+  padding: 0;
+  color: #b91c1c;
+  font-weight: 600;
+  font-size: 0.95rem;
   line-height: 1.25;
-  text-align: center;        /* CENTRÉ */
+  text-align: center;
   letter-spacing: 0.2px;
   word-break: break-word;
 }
 
-/* Variante légèrement atténuée (si tu veux un ton moins fort sur petits écrans) */
 @media (max-width: 420px) {
   .error-text {
     font-size: 0.92rem;

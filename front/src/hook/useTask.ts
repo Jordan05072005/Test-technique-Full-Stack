@@ -45,7 +45,6 @@ export const useTaskForm = () => {
 					p._id === task._id
 						? { ...p, ...result }: p));
 		}
-				console.log("gede");
 		setStateFormTask(false);
 		setFormTask(prev => ({...prev, body: "", checked: false}));
 		setStateUpdateFormTask(false);

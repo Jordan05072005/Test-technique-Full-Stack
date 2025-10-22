@@ -1,25 +1,23 @@
 .form-backdrop {
   display: flex;
-  justify-content: center; /* centre horizontalement */
-  align-items: center;     /* centre verticalement */
-  padding-top: 0;          /* annule le décalage vers le haut */
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
   z-index: 2000;
 }
 
-/* Backdrop couvrant tout l'écran et assombrit le reste */
 .form-backdrop {
-  position: fixed;     /* couvrir la fenêtre entière */
-  inset: 0;            /* top:0 right:0 bottom:0 left:0 */
+  position: fixed;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.45); /* couche sombre */
-  z-index: 9999;       /* très au dessus (ajuste si besoin) */
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
   -webkit-tap-highlight-color: transparent;
   transition: background 180ms ease;
 }
 
-/* boîte du formulaire au-dessus du backdrop */
 .form {
   position: relative;
   z-index: 10000;
@@ -56,13 +54,13 @@
   width: 100%;
   display: block;
   padding-right: 2.5rem;
+	color: 	#000000;
 }
 
-/* positionner la croix en absolute (en haut à droite de la modal) */
 .form .close-btn {
   position: absolute;
-  top: 0.7rem;            /* ajuste verticalement pour aligner avec le titre */
-  right: 0.6rem;          /* distance depuis le bord droit */
+  top: 0.7rem;
+  right: 0.6rem;
   padding: 0.25rem;
   height: auto;
   width: auto;
@@ -70,7 +68,6 @@
 
 
 
-/* Force les inputs empilés et le bouton toujours en dessous */
 .form .header-row {
   display: flex !important;
   flex-direction: column !important;
@@ -85,10 +82,9 @@
   box-sizing: border-box;
 }
 
-/* S'assure que le bouton est sur sa propre ligne, sous les inputs */
 .form .Validation {
   display: block !important;
-  width: 100% !important;      /* retirer si tu veux bouton plus petit */
+  width: 100% !important;
   margin-top: 0.75rem !important;
   box-sizing: border-box !important;
 }	
